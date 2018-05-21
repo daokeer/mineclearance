@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>扫雷</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background-color: #f1f1f1;
+    }
+
+    table {
+      border-collapse: collapse;
+      background-color: #f1f1f1;
+      margin: 10px auto;
+    }
+
+    table tr td {
+      width: 28px;
+      height: 28px;
+      font-size: 12px;
+      position: relative;
+      line-height: 20px;
+      text-align: center;
+      border: 1px solid #afa3a3;
+      overflow: hidden;
+    }
+
+    table tr td span {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #c7c5c5;
+      border: 2px solid #666;
+      border-top-color: #fff;
+      border-left-color: #fff;
+    }
+
+    .target-mine,
+    .target-leavel {
+      text-align: center;
+      line-height: 40px;
+    }
+
+    .shade {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: none;
+      z-index: 100;
+    }
+
+    .shade-box {
+      width: 150px;
+      height: 100px;
+      border-radius: 1px solid #ccc;
+      border-radius: 6px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      background-color: #fff;
+      text-align: center;
+    }
+
+    .shade-box .title {
+      font-size: 12px;
+      line-height: 50px;
+    }
+
+    .shade-box .btn-box>button {
+      border: none;
+      outline: none;
+      background-color: skyblue;
+      padding: 5px 10px;
+      font-size: 12px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <p class="target-mine">目标雷数:
+    <span id="markNum" style="color: red"></span>个</p>
+  <p class="target-leavel">请选择难度：
+    <select id="level">
+      <option value="1">初级玩家
+        <option value="2">普通玩家
+          <option value="3">高级玩家
+    </select>
+  </p>
+  <div class="shade" id="shade">
+    <div class="shade-box">
+      <p class="title">游戏结束</p>
+      <div class="btn-box">
+        <button id="gameover">游戏结束</button>
+        <button id="gameagain">再来一局</button>
+      </div>
+    </div>
+  </div>
+  <table id="table">
+  </table>
+</body>
+<script src="./js/game.js"></script>
+<script src="./js/map.js"></script>
+<script>
+  var game = new Game();
+</script>
+
+</html>
